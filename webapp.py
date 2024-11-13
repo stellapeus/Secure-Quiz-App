@@ -28,14 +28,28 @@ def renderPage1():
 
 @app.route('/page2',methods=['GET','POST'])
 def renderPage2():
-    session["firstName"]=request.form['firstName']
-    session["lastName"]=request.form['lastName']
+    if "animalName" not in session:
+        session["animalName"]=request.form['animalName']
     return render_template('page2.html')
 
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
-    session["favoriteColor"]=request.form['favoriteColor']
+    if "musicGenre" not in session:
+        session["musicGenre"]=request.form['musicGenre']
     return render_template('page3.html')
+    
+@app.route('/page',methods=['GET','POST'])
+def renderPage():
+    if "favHoliday" not in session:
+        session["favHoliday"]=request.form['favHoliday']
+    pointCount = 0
+    if session["favHoliday"] == "christmas":
+        pointCount = pointCount +1
+    if session["musicGenre"] == "pop":
+        pointCount = pointCount +1
+    if session["animalName"] == "giraffe":
+        pointCount = pointCount +1
+    return render_template('page.html', pointCount=pointCount)
     
 if __name__=="__main__":
     app.run(debug=False)
