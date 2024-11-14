@@ -1,14 +1,35 @@
 body {
 
-    background-color: #ffffcc;
+    background-color: #abb7f5;
     color: black;
 }
 
 div#footer {
     
-    font-size: 0.8em;
-    background-color: #ccffff;
+    font-size: 1.2em;
+    background-color: #cca4db;
     border: 4px solid grey;
     margin-top: 3em;
     padding: 1em;
+}
+
+h1 {
+	font-style: "Lucida Console", "Courier New", monospace;
+	font-size: 50px;
+	border-style: ridge;
+	text-align: center;
+	background-color: #cca4db;
+	color: #fafaf5;
+}
+
+.begin {
+	font-style: "Lucida Console", "Courier New", monospace;
+	font-size: 20px;
+	border-style: ridge;
+	text-align: center;
+	background-color: #cca4db;
+	color: #fafaf5;
+	width: 20%;
+	display: block;
+	margin: auto;
 }
