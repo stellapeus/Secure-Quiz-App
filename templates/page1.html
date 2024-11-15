@@ -3,11 +3,11 @@
 {% block title %}Page 1: Name{% endblock %}
 
 {% block content %}
-  <h1>Page 1: What is your favorite animal?</h1>
+  <h1>Page 1: Which country has the highest population?</h1>
 
  <form action={{ url_for("renderPage2") }} method="POST">
-  Animal:<br>
-  <input type="text" name="animalName">
+  Country:<br>
+  <input type="text" name="highestPop">
   <br>
   <input type="submit" value="Submit">
  </form> 
