@@ -3,11 +3,11 @@
 {% block title %}Page 2: Ask for your favorite color{% endblock %}
 
 {% block content %}
-  <h1>Page 2: What is the name of the tallest mountain in the world?</h1>
+  <h1>Page 2: What is the largest country in the world by land?</h1>
 
  <form action={{ url_for("renderPage3") }} method="POST">
-  Mountain:<br>
-  <input type="text" name="tallestMountain">
+  Country:<br>
+  <input type="text" name="biggestCountry">
   <input type="submit" value="Submit">
  </form> 
 

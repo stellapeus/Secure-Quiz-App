@@ -3,11 +3,11 @@
 {% block title %}Page 2: Ask for your favorite color{% endblock %}
 
 {% block content %}
-  <h1>Page 3: What is your favorite holiday?</h1>
+  <h1>Page 3:  What country are the Great Pyramids of Giza located in?</h1>
 
  <form action={{ url_for("renderPage") }} method="POST">
-  favorite holiday:<br>
-  <input type="text" name="favHoliday">
+  Country:<br>
+  <input type="text" name="pyramidsLocation">
   <input type="submit" value="Submit">
  </form> 
 

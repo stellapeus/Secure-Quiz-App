@@ -2,6 +2,7 @@ import os
 from flask import Flask, url_for, render_template, request
 from flask import redirect
 from flask import session
+import time
 
 app = Flask(__name__)
 
@@ -24,32 +25,35 @@ def startOver():
 
 @app.route('/page1')
 def renderPage1():
+    session["starttime"]=time.time()
     return render_template('page1.html')
 
 @app.route('/page2',methods=['GET','POST'])
 def renderPage2():
-    if "animalName" not in session:
-        session["animalName"]=request.form['animalName']
+    if "highestPop" not in session:
+        session["highestPop"]=request.form['highestPop']
     return render_template('page2.html')
 
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
-    if "musicGenre" not in session:
-        session["musicGenre"]=request.form['musicGenre']
+    if "biggestCountry" not in session:
+        session["biggestCountry"]=request.form['biggestCountry']
     return render_template('page3.html')
     
 @app.route('/page',methods=['GET','POST'])
 def renderPage():
-    if "favHoliday" not in session:
-        session["favHoliday"]=request.form['favHoliday']
+    session["endtime"]=time.time()
+    timeTaken=session["endtime"] - session["starttime"]
+    if "pyramidsLocation" not in session:
+        session["pyramidsLocation"]=request.form['pyramidsLocation']
     pointCount = 0
-    if session["favHoliday"] == "christmas":
+    if session["pyramidsLocation"] == "egypt" or session["pyramidsLocation"] == "Egypt":
         pointCount = pointCount +1
-    if session["musicGenre"] == "pop":
+    if session["biggestCountry"] == "russia" or session["biggestCountry"] == "Russia":
         pointCount = pointCount +1
-    if session["animalName"] == "giraffe":
+    if session["highestPop"] == "india" or session["highestPop"] == "India":
         pointCount = pointCount +1
-    return render_template('page.html', pointCount=pointCount)
+    return render_template('page.html', pointCount=pointCount, timeTaken=timeTaken)
     
 if __name__=="__main__":
     app.run(debug=False)
